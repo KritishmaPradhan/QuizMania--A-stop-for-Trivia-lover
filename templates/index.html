@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Project</title>
+  <style>
+    /* ---------- Reset & Base ------------ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #00F0FF, #BC00FF, #FF00A0);
+      font-family: Arial, sans-serif;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 1rem;
+    }
+
+    /* ---------- Navbar ----------- */
+    .about {
+      background-color: rgb(30, 1, 28);
+      display: flex;
+      gap: 1.5rem;
+      justify-content: flex-end;
+      width: 100%;
+      max-width: 1650px;
+      padding: 1rem;
+    }
+
+    .about .a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .about .a:hover {
+      color: #b1058f;
+    }
+
+    /* ---------- Intro Text ---------- */
+    .container {
+      text-align: center;
+      margin: 1.5rem 0;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    .start{
+      background: #120016;                 /* Dark purple/black background */
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 0 8px #E86BFF, 
+                  0 0 15px #B630FF inset;
+      transition: 0.25s ease;
+      margin-top: 20px;
+    }
+
+    .start:hover {
+    box-shadow: 0 0 35px #7A00FF;
+    transform: scale(1.06);
+    }
+
+    /* ---------- Content Sections ---------- */
+    .home {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 40px 20px;
+    }
+
+    /* Neon Card with Animated Gradient Border */
+    .homeinfo {
+        position: relative;
+        width: min(250px, 80vw);
+        height: 120px;
+        border-radius: 20px;
+        color: #fff;
+        background: #0c0010;
+        padding: 20px;
+        text-align: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease-in-out;
+        overflow: hidden;
+        font-size: 1.1rem;
+    }
+
+    /* The animated glowing border */
+    .homeinfo::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(
+            90deg,
+            #ff00ff,
+            #9900ff,
+            #5500ff,
+            #00eaff,
+            #ff00ff
+        );
+        background-size: 300%;
+        animation: borderGlow 4s linear infinite;
+        z-index: -1;
+    }
+
+    /* Dark inner layer so border is visible */
+    .homeinfo::after {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        background: #0c0010;
+        border-radius: inherit;
+        z-index: -1;
+    }
+
+    /* Hover motion */
+    .homeinfo:hover {
+        transform: translateY(-6px) scale(1.05);
+    }
+
+    /* Border animation */
+    @keyframes borderGlow {
+        0% { background-position: 0%; }
+        100% { background-position: 300%; }
+    }
+
+
+    .information {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      padding-bottom: 4rem;
+      text-align: center;
+    }
+    .animated-gradient {
+        width: 100%;
+        height: 300px; /* adjust as needed */
+        border-radius: 20px;
+        background: linear-gradient(270deg, #0a001a, #250035, #5500ff, #00eaff, #0a001a);
+        background-size: 300% 300%; /* makes the gradient large so it can move */
+        animation: gradientMove 8s ease infinite;
+}
+
+        /* Animation */
+        @keyframes gradientMove {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        
+    .aboutus {
+      /* background-color: rgb(30, 1, 28); */
+      background: transparent;
+      border-top: 3px solid  #120016;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+      padding: 2rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      transition: transform 0.2s ease-in-out;
+      line-height: 1.6;
+    }
+
+    .aboutus:hover {
+      transform: scale(1.03);
+    }
+
+    .aboutus #aboutus1,
+    .infoTitle {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 1rem;
+    }
+
+    /* ---------- Media Queries ---------- */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .about {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .aboutus {
+        padding: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .container {
+        font-size: 1rem;
+      }
+
+      .inputname {
+        padding: 1.2rem;
+      }
+
+      .aboutus {
+        padding: 1rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="about">
+    <a class="a" href="#i2">About us</a>
+    <a class="a" href="#i3">Contact</a>
+    <a class="a" href="#i1">Home</a>
+  </div>
+
+  <h1>Quiz Craze</h1>
+
+  <!-- Intro Text -->
+  <div class="container">
+    <p>
+      Quiz craze brings you with exciting quiz questions<br>
+      covering various subjects including science<br>
+      general knowledge, maths, literature, IQs ans many more
+    </p>
+  </div>
+
+  <!-- Name Input -->
+    <form action=" " method="POST">
+      {% csrf_token %}
+      <button type="submit" class="start">Get Started</button>
+    </form>
+
+  <!-- Information Sections -->
+  <div class="information">
+    <div class="home" id="i1">
+        <div class="homeinfo">
+            We have amazing visuals
+        </div>
+        <div class="homeinfo">
+            Insightful and knowledgeable
+        </div>
+        <div class="homeinfo">
+            fun and interactive
+        </div>
+        <div class="homeinfo">
+            responsive design 
+        </div>
+    </div>
+
+    <div class="animated-gradient"></div>
+
+    <div class="aboutus" id="i2">
+      <p class="infoTitle">About Us <br></p>
+      <p>Welcome to Quiz Craze, the ultimate destination for trivia lovers!
+        Whether you’re a casual player or a quiz master, our game offers endless
+        fun and challenges across a wide range of topics. From pop culture and
+        history to science and sports, we’ve got questions to test your knowledge
+        and keep you entertained.
+        At Quiz Craze, we believe learning should be fun. That’s why we’ve
+        designed an interactive experience where you can challenge your friends,
+        unlock achievements, and climb the leaderboard. With new quizzes added
+        regularly, there’s always something fresh to explore!
+        So, what are you waiting for? Dive into the world of trivia, sharpen your
+        mind, and see how you rank against players worldwide.
+        Let the quiz begin!</p>
+    </div>
+
+    <div class="aboutus" id="i3">
+      <p class="infoTitle">Contact <br></p>
+      <p>We’d love to hear from you! Whether you have questions, feedback, or need
+        assistance with the game, our team is here to help. Your experience is
+        important to us, and we’re always looking for ways to improve. Feel free
+        to reach out to us,we will acknowlegde to you as soon
+        as possible. You can also follow us on social media for the latest
+        updates, new quizzes, and exclusive content. Thank you for playing Quiz
+        Craze—happy quizzing!</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
