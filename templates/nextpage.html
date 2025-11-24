@@ -3,85 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nextpage</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            }
-        body {
-          min-height: 100vh;
-          background: linear-gradient(135deg, #00F0FF, #BC00FF, #FF00A0);
-          font-family: Arial, sans-serif;
-          color: black;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        h1{
-            font-family: sans-serif;
-            font-size: 40px;
-            text-align: center;
-        }
-        h2{
-            font-family: sans-serif;
-            font-size: 20px;
-            text-align: center;
-            font-style: italic;
-        }
-        .options{
-            display: flex;
-            flex-direction: column;
-            gap: 3em;
-            flex-wrap: wrap;
-            text-align: center;
-            background:#0c0010;
-            box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
-            padding: 70px;
-            width: 600px;
-            border-radius: 12px;
-        }
-        .subjectbutton{
-            border: none;
-            background-color: rgb(130, 217, 249);
-            padding: 18px;
-            border-radius: 12px;
-            width: 300px;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-            font-size: 20px;
-        }
-        .subjectbutton:hover{
-            transform: scale(1.1);
-        }
-        img{
-            position: absolute;
-            right: 180px;
-            top: 150px;
-            height: 550px;
-            width: 380px;
-        }
-    </style>
+    <title>Next Page - Linear Menu</title>
+    <link rel = "stylesheet" href = "static/next.css">
 </head>
 <body>
+
     <h1>Choose Quiz Subject</h1>
-    <h2> Welcome QuizMaster! </h2>
-    <div class = 'options'>
-        <a href = "{% url 'index'%}">
-            <button class = 'subjectbutton' type = 'button' id = 'b1'>Science</button>
-        </a>
-        <a href = "{% url 'index'%}">
-            <button class = 'subjectbutton' type = 'button' id = 'b2'>Literature</button>
-        </a>
-        <a href = "{% url 'index'%}">
-            <button class = 'subjectbutton' type = 'button' id = 'b3'>Maths</button>
-        </a>
-        <a href = "{% url 'index'%}">
-            <button class = 'subjectbutton' type = 'button' id = 'b4'>General knowledge</button>
-        </a>
-        <a href = "{% url 'index'%}">
-            <button class = 'subjectbutton' type = 'button' id = 'b5'>IT</button>
-        </a>
+    <h2>Welcome QuizMaster!</h2>
+
+    <div class="options" id="launcher">
+        Click here to choose subject
     </div>
+
+    <div class="subject-menu" id="menu">
+        <a href="quizplay"><button class="subjectbutton">Science</button></a>
+        <a href="quizplay"><button class="subjectbutton">Literature</button></a>
+        <a href="quizplay"><button class="subjectbutton">Maths</button></a>
+        <a href="quizplay"><button class="subjectbutton">General Knowledge</button></a>
+        <a href="quizplay"><button class="subjectbutton">IT</button></a>
+    </div>
+
+    <script>
+        const launcher = document.getElementById("launcher");
+        const buttons = document.querySelectorAll(".subjectbutton");
+        let opened = false;
+
+        launcher.addEventListener("click", () => {
+            opened = !opened;
+            buttons.forEach((btn, i) => {
+                setTimeout(() => {
+                    if (opened) {
+                        btn.classList.add("show");
+                    } else {
+                        btn.classList.remove("show");
+                    }
+                }, i * 100); // stagger animation by 100ms per button
+            });
+        });
+    </script>
+
 </body>
 </html>

@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #00F0FF, #BC00FF, #FF00A0);
+  font-family: Arial, sans-serif;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+/* ---------- Navbar ----------- */
+.about {
+  background-color: #0c0010;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1650px;
+  padding: 1rem;
+}
+.about .a {
+  text-decoration: none;
+  color: white;
+}
+.about .a:hover {
+  color: #b1058f;
+}
+/* ---------- Intro Text ---------- */
+.container {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+.start{
+  background: #0c0010;                 /* Dark purple/black background */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 0 8px #E86BFF, 
+              0 0 15px #B630FF inset;
+  transition: 0.25s ease;
+  margin-top: 20px;
+}
+.start:hover {
+    box-shadow: 0 0 35px #7A00FF;
+    transform: scale(1.06);
+}
+/* ---------- Content Sections ---------- */
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 40px 20px;
+}
+/* Neon Card with Animated Gradient Border */
+.homeinfo {
+  position: relative;
+  width: min(250px, 80vw);
+  height: 120px;
+  border-radius: 20px;
+  color: #fff;
+  background: #0c0010;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
+  font-size: 1.1rem;
+}
+/* The animated glowing border */
+.homeinfo::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+      90deg,
+      #ff00ff,
+      #9900ff,
+      #5500ff,
+      #00eaff,
+      #ff00ff
+  );
+  background-size: 300%;
+  animation: borderGlow 4s linear infinite;
+  z-index: -1;
+}
+/* Dark inner layer so border is visible */
+.homeinfo::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  background: #0c0010;
+  border-radius: inherit;
+  z-index: -1;
+}
+/* Hover motion */
+.homeinfo:hover {
+    transform: translateY(-6px) scale(1.05);
+}
+/* Border animation */
+@keyframes borderGlow {
+    0% { background-position: 0%; }
+    100% { background-position: 300%; }
+}
+.information {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+.animated-gradient {
+  width: 100%;
+  height:20px; /* adjust as needed */
+  background: linear-gradient(270deg, #38013c, #580130, #5500ff, #00eaff, #0a001a);
+  background-size: 300% 300%; /* makes the gradient large so it can move */
+  animation: gradientMove 8s ease infinite;
+}
+/* Animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+        
+.aboutus {
+    /* background-color: rgb(30, 1, 28); */
+    background: transparent;
+    border-top: 3px solid  #0c0010;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+    line-height: 1.6;
+}
+
+.aboutus:hover {
+    transform: scale(1.03);
+}
+.aboutus #aboutus1,
+.infoTitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 1rem;
+}
+.contact-info {
+    padding: 30px;
+    background-color: #0c0010;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin: 30px;
+    color:white;
+  }
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.contact-item i {
+    width: 40px;
+    height: 40px;
+    background: #b1058f;
+    color: #0c0010;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+.social-links a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 40px;
+    background: #b1058f;
+    border-radius: 50%;
+    margin: 0 10px;
+    color: #0c0010;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.social-links a:hover{
+    box-shadow: 0 0 35px #7A00FF;
+}
+
+/* ---------- Media Queries ---------- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+      }
+
+    .about {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+    .aboutus {
+        padding: 1.4rem;
+      }
+    }
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.7rem;
+      }
+
+    .container {
+        font-size: 1rem;
+      }
+
+    .inputname {
+        padding: 1.2rem;
+      }
+
+    .aboutus {
+        padding: 1rem;
+        font-size: 0.95rem;
+      }
+    }

@@ -3,5 +3,6 @@ from quizapp import views
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('nextpage', views.nextpage, name= 'nextpage')
+    path('nextpage', views.nextpage, name= 'nextpage'),
+    path('quizplay', views.quizplay, name= 'quizplay')
 ]

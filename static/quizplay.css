@@ -1,0 +1,68 @@
+* { 
+    margin:0; 
+    padding:0; 
+    box-sizing:border-box; 
+}
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #00F0FF, #BC00FF, #FF00A0);
+    font-family: Arial, sans-serif;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    text-align: center;
+}
+p{
+    font-size: 40px;
+}
+h2{
+    font-size: 50px;
+}
+.quizContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    padding: 40px;
+    box-shadow: 0 0 12px rgb(56, 56, 56);
+    border-radius:20px;
+    text-align: center;
+}
+.answerContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+    gap: 3rem;
+    font-size: 30px;
+}
+.radio-custom {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #0c0010;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+}
+.radio-custom:hover{
+    box-shadow: 0 0 8px #E86BFF, 
+              0 0 15px #B630FF inset;;
+}
+.submit{
+  background: #0c0010;                 /* Dark purple/black background */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 0 8px #E86BFF, 
+              0 0 15px #B630FF inset;
+  transition: 0.25s ease;
+  margin-top: 20px;
+}
+.submit:hover {
+    box-shadow: 0 0 35px #7A00FF;
+    transform: scale(1.06);
+}

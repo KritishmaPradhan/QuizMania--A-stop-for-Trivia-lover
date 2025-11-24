@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Play</title>
+    <link rel = " stylesheet" href = "static/quizplay.css">
+</head>
+<body>
+    <p>Test your Knowledge.</p>
+    <div class="quizContainer">
+        <form action="quizplay" method="POST">
+            {% csrf_token %} 
+            <h2>{{ q.question }}</h2>
+            <div class="answerContainer">
+                <label>
+                    <input type="radio" name="answer" value="{{ quizcontent.answer1 }}" class="radio-custom" required>
+                    {{ q.answer1 }}
+                </label>
+
+                <label>
+                    <input type="radio" name="answer" value="{{ quizcontent.answer2 }}" class="radio-custom">
+                    {{ q.answer2 }}
+                </label>
+
+                <label>
+                    <input type="radio" name="answer" value="{{ quizcontent.answer3 }}" class="radio-custom">
+                    {{ q.answer3 }}
+                </label>
+            </div>
+            <br><br>
+            <button class = "submit" type="submit">Submit</button>
+        </form>
+    </div>  
+    {{error}}  
+</body>
+</html>

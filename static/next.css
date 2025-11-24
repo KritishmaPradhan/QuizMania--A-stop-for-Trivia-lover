@@ -1,0 +1,111 @@
+
+* { 
+    margin:0; 
+    padding:0; 
+    box-sizing:border-box; 
+}
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #00F0FF, #BC00FF, #FF00A0);
+    font-family: Arial, sans-serif;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+h1 { 
+    font-size: 40px; 
+    text-align:center; 
+}
+h2 { font-size: 20px; 
+    text-align:center; 
+    font-style:italic; 
+    margin-bottom:30px; 
+}
+.options {
+    position: relative;
+    width: min(350px, 80vw);
+    height: 120px;
+    background: #0c0010;
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    text-align: center;
+    overflow: hidden;
+
+}
+.options::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+      90deg,
+      #ff00ff,
+      #9900ff,
+      #5500ff,
+      #00eaff,
+      #ff00ff
+  );
+  background-size: 300%;
+  animation: borderGlow 4s linear infinite;
+  z-index: -1;
+}
+.options::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  background: #0c0010;
+  border-radius: inherit;
+  z-index: -1;
+}
+/* Hover motion */
+.options:hover {
+    transform: translateY(-6px) scale(1.05);
+}
+/* Border animation */
+@keyframes borderGlow {
+    0% { background-position: 0%; }
+    100% { background-position: 300%; }
+}
+.options:hover { 
+    transform: scale(1.05); 
+}
+.subject-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+.subjectbutton {
+    width: min(150px, 80vw);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background: rgb(58, 1, 82);
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s;
+}
+
+.subjectbutton:hover{
+    background:white;
+    color:rgb(58, 1, 82);
+
+}
+.subjectbutton.show {
+    opacity: 1;
+    transform: translateY(0);
+}
