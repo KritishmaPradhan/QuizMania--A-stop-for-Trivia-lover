@@ -30,7 +30,7 @@
 
     /* ---------- Navbar ----------- */
     .about {
-      background-color: rgb(30, 1, 28);
+      background-color: #0c0010;
       display: flex;
       gap: 1.5rem;
       justify-content: flex-end;
@@ -56,7 +56,7 @@
       line-height: 1.5;
     }
     .start{
-      background: #120016;                 /* Dark purple/black background */
+      background: #0c0010;                 /* Dark purple/black background */
       color: white;
       border: none;
       padding: 12px 24px;
@@ -154,30 +154,28 @@
     }
     .animated-gradient {
         width: 100%;
-        height: 300px; /* adjust as needed */
-        border-radius: 20px;
-        background: linear-gradient(270deg, #0a001a, #250035, #5500ff, #00eaff, #0a001a);
+        height:20px; /* adjust as needed */
+        background: linear-gradient(270deg, #38013c, #580130, #5500ff, #00eaff, #0a001a);
         background-size: 300% 300%; /* makes the gradient large so it can move */
         animation: gradientMove 8s ease infinite;
 }
-
-        /* Animation */
-        @keyframes gradientMove {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
+    /* Animation */
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
         
     .aboutus {
       /* background-color: rgb(30, 1, 28); */
       background: transparent;
-      border-top: 3px solid  #120016;
+      border-top: 3px solid  #0c0010;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
       padding: 2rem;
       font-size: 1rem;
@@ -197,6 +195,45 @@
       color: black;
       margin-bottom: 1rem;
     }
+    .contact-info {
+    padding: 30px;
+    background-color: #0c0010;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin: 30px;
+    color:white;
+  }
+
+  .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+  }
+
+  .contact-item i {
+      width: 40px;
+      height: 40px;
+      background: #b1058f;
+      color: #0c0010;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.1rem;
+  }
+  .social-links a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 40px;
+    background: #b1058f;
+    border-radius: 50%;
+    margin: 0 10px;
+    color: #0c0010;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
     /* ---------- Media Queries ---------- */
     @media (max-width: 768px) {
@@ -242,6 +279,7 @@
     <a class="a" href="#i3">Contact</a>
     <a class="a" href="#i1">Home</a>
   </div>
+  <div class="animated-gradient"></div>
 
   <h1>Quiz Craze</h1>
 
@@ -250,35 +288,34 @@
     <p>
       Quiz craze brings you with exciting quiz questions<br>
       covering various subjects including science<br>
-      general knowledge, maths, literature, IQs ans many more
+      general knowledge, maths, literature, IQs and many more
     </p>
   </div>
 
   <!-- Name Input -->
-    <form action=" " method="POST">
-      {% csrf_token %}
-      <button type="submit" class="start">Get Started</button>
-    </form>
+    <!-- <form action="" method="POST">
+      {% csrf_token %} -->
+      <a href = "nextpage">
+        <button type="submit" class="start">Get Started</button>
+      </a>
+    <!-- </form> -->
 
   <!-- Information Sections -->
   <div class="information">
     <div class="home" id="i1">
         <div class="homeinfo">
-            We have amazing visuals
+            Amazing visuals
         </div>
         <div class="homeinfo">
             Insightful and knowledgeable
         </div>
         <div class="homeinfo">
-            fun and interactive
+            Fun and interactive
         </div>
         <div class="homeinfo">
-            responsive design 
+            Responsive design 
         </div>
     </div>
-
-    <div class="animated-gradient"></div>
-
     <div class="aboutus" id="i2">
       <p class="infoTitle">About Us <br></p>
       <p>Welcome to Quiz Craze, the ultimate destination for trivia lovers!
@@ -304,6 +341,24 @@
         as possible. You can also follow us on social media for the latest
         updates, new quizzes, and exclusive content. Thank you for playing Quiz
         Craze—happy quizzing!</p>
+      <div class="contact-info">
+        <div class="contact-item">
+            <i class="fas fa-envelope" alt = "G"></i>
+            <p>pradhankritishma@gmail.com</p>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-phone" alt = "C"></i>
+            <p>+977 9864540394</p>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-map-marker-alt" alt = "N"></i>
+            <p>Nepal</p>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/KritishmaPradhan" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/kritishma-pradhan-8181b1293" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
     </div>
 
   </div>

@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nextpage</title>
     <style>
-        html,body{
-            /* background: linear-gradient(rgb(187, 233, 255), white, rgb(192, 247, 192)); */
-            background-image: url('static/img2.avif');
-            background-repeat: repeat;
-            background-size: contain;
-            margin:0px;
-            height:100%;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+        body {
+          min-height: 100vh;
+          background: linear-gradient(135deg, #00F0FF, #BC00FF, #FF00A0);
+          font-family: Arial, sans-serif;
+          color: black;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
         h1{
             font-family: sans-serif;
@@ -29,14 +35,12 @@
             flex-direction: column;
             gap: 3em;
             flex-wrap: wrap;
-            background:linear-gradient(170deg, rgb(225, 240, 142), rgb(145, 255, 145), rgb(174, 244, 174));
+            text-align: center;
+            background:#0c0010;
             box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
             padding: 70px;
             width: 600px;
-            position: absolute;
-            left: 350px;
             border-radius: 12px;
-            text-align: center;
         }
         .subjectbutton{
             border: none;
