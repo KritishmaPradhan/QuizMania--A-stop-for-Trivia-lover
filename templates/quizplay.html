@@ -14,24 +14,25 @@
             <h2>{{ q.question }}</h2>
             <div class="answerContainer">
                 <label>
-                    <input type="radio" name="answer" value="{{ quizcontent.answer1 }}" class="radio-custom" required>
+                    <input type="radio" name="answer" value="{{ q.answer1 }}" class="radio-custom" required>
                     {{ q.answer1 }}
                 </label>
 
                 <label>
-                    <input type="radio" name="answer" value="{{ quizcontent.answer2 }}" class="radio-custom">
+                    <input type="radio" name="answer" value="{{ q.answer2 }}" class="radio-custom">
                     {{ q.answer2 }}
                 </label>
 
                 <label>
-                    <input type="radio" name="answer" value="{{ quizcontent.answer3 }}" class="radio-custom">
+                    <input type="radio" name="answer" value="{{ q.answer3 }}" class="radio-custom">
                     {{ q.answer3 }}
                 </label>
             </div>
             <br><br>
             <button class = "submit" type="submit">Submit</button>
         </form>
+        {{error}}
     </div>  
-    {{error}}  
+    {{errormsg}}
 </body>
 </html>

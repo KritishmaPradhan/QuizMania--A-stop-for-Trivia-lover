@@ -21,7 +21,7 @@ def nextpage(request):
 
 def quizplay(request):
     # If session question index does not exist, start with the first question
-    if 'q_index' not in request.session:
+    if 'q_index' not in request.session or request.session['q_index'] >= QuizQuestion.objects.count():
         request.session['q_index'] = 0
 
     q_index = request.session['q_index']
@@ -32,16 +32,18 @@ def quizplay(request):
         return render(request, 'quizplay.html', {"error" : "End Game"})
 
     current_question = questions[q_index]
+    error1 = ""
 
     if request.method == "POST":
         selected = request.POST.get("answer")
-
-        # You can check correctness here if needed
-
-        # Move to next
-        request.session['q_index'] += 1
-        return redirect('quizplay')
-
+        if selected == current_question.correct_answer:
+            # correct → next question
+            request.session['q_index'] += 1
+            return redirect('quizplay')
+        else:
+            # wrong → stay on same question
+            error1 = "❌ Incorrect! Try again."
     return render(request, 'quizplay.html', {
-        'q': current_question
+        "q": current_question,
+        "errormsg": error1
     })
