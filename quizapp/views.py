@@ -27,10 +27,6 @@ def quizplay(request):
     q_index = request.session['q_index']
     questions = QuizQuestion.objects.all()
 
-    # If all questions finished
-    if q_index >= len(questions):
-        return render(request, 'quizplay.html', {"error" : "End Game"})
-
     current_question = questions[q_index]
     error1 = ""
 

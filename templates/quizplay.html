@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Play</title>
-    <link rel = " stylesheet" href = "static/quizplay.css">
+    <link rel = " stylesheet" href = 'static/quizplay.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+    <a href = "{% url 'index' %}">
+        <button class="homebtn" id = "homebtnid"><i class="fa fa-home"></i></button>
+    </a>
     <p>Test your Knowledge.</p>
     <div class="quizContainer">
         <form action="quizplay" method="POST">
@@ -31,8 +35,7 @@
             <br><br>
             <button class = "submit" type="submit">Submit</button>
         </form>
-        {{error}}
-    </div>  
+    </div>
     {{errormsg}}
 </body>
 </html>
