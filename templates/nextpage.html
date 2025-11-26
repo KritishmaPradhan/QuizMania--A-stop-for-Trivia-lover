@@ -22,25 +22,11 @@
         <a href="quizplay"><button class="subjectbutton">General Knowledge</button></a>
         <a href="quizplay"><button class="subjectbutton">IT</button></a>
     </div>
-
-    <script>
-        const launcher = document.getElementById("launcher");
-        const buttons = document.querySelectorAll(".subjectbutton");
-        let opened = false;
-
-        launcher.addEventListener("click", () => {
-            opened = !opened;
-            buttons.forEach((btn, i) => {
-                setTimeout(() => {
-                    if (opened) {
-                        btn.classList.add("show");
-                    } else {
-                        btn.classList.remove("show");
-                    }
-                }, i * 100); // stagger animation by 100ms per button
-            });
-        });
-    </script>
-
+    <div class="ribbon-container">
+        <div class="ribbon-track" id="ribbonTrack">
+            <!-- Ribbon items will be added by JavaScript -->
+        </div>
+    </div>
+    <script src ="static/nextpage.js"></script>
 </body>
 </html>
